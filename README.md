@@ -1,37 +1,36 @@
-# Laporan Proyek Machine Learning - Maklon Jacob Frare
+![image](https://github.com/user-attachments/assets/d119cd4f-f729-4210-b49a-1f2701596147)# Laporan Proyek Machine Learning - Nuansa Syafrie Rahardian
 
 ## Domain Proyek
 
-Kinerja siswa dalam lingkungan pendidikan memainkan peran penting dalam menentukan keberhasilan akademik dan masa depan mereka. Dalam era digital saat ini, institusi pendidikan memiliki akses ke berbagai data terkait aktivitas belajar siswa, seperti nilai ujian, kehadiran, partisipasi dalam kegiatan ekstrakurikuler, dan data demografis. Namun, potensi data ini seringkali belum dimanfaatkan secara maksimal untuk memberikan wawasan yang dapat membantu meningkatkan hasil belajar siswa.
+Kesehatan mental merupakan aspek penting dalam kehidupan seseorang, yang memengaruhi cara berpikir, merasakan, dan bertindak dalam menghadapi berbagai situasi kehidupan. Dalam beberapa tahun terakhir, isu terkait kesehatan mental semakin mendapatkan perhatian, terutama karena meningkatnya tingkat stres, depresi, dan gangguan kecemasan yang dialami oleh individu dari berbagai kalangan. Meskipun demikian, masih banyak tantangan dalam upaya deteksi dini dan penanganan masalah kesehatan mental secara efektif.
 
-Pendekatan tradisional dalam mengevaluasi kinerja siswa cenderung bersifat reaktif, hanya memberikan perhatian setelah masalah terjadi, seperti penurunan nilai atau tingkat kehadiran yang rendah. Oleh karena itu, diperlukan solusi yang bersifat prediktif untuk mengidentifikasi potensi risiko lebih awal, sehingga institusi pendidikan dapat mengambil langkah-langkah preventif untuk mendukung siswa secara proaktif.
+Dengan memanfaatkan data yang tersedia dari berbagai faktor seperti usia, jenis kelamin, jam tidur, tingkat stres, kualitas diet, hingga kebiasaan merokok dan konsumsi alkohol, machine learning dapat digunakan untuk membangun model prediktif yang mampu mengidentifikasi individu dengan risiko gangguan kesehatan mental. Model ini diharapkan dapat membantu organisasi, institusi kesehatan, dan pembuat kebijakan dalam mengambil langkah preventif serta memberikan intervensi yang tepat sasaran.
 
-Predictive analytics memungkinkan institusi pendidikan untuk mengidentifikasi pola performa siswa berdasarkan data historis. Teknologi ini membantu dalam pengambilan keputusan yang proaktif untuk memberikan intervensi yang tepat waktu dan mendukung siswa dalam mencapai hasil terbaik. Pada kasus ini penulis menerapkan 4 model pembelajaran machine learning yakni Random Forest, Naive Bayes, Support Vector Machine (SVM) dan Extreme Gradient Boosting (XGBoost). Pendekatan ini mengintegrasikan keunggulan dari berbagai model untuk membandingkan dan menemukan algoritma terbaik dalam memprediksi performa siswa berdasarkan dataset yang diperoleh dari kaggel dan dapat diakses pada tautan berikut (https://www.kaggle.com/datasets/rabieelkharoua/students-performance-dataset). Dengan menggunakan model ini, diharapkan hasil prediksi yang akurat dapat membantu institusi pendidikan dalam merancang strategi pembelajaran yang lebih efektif dan personalisasi untuk siswa.
+Pada proyek ini, penulis menerapkan empat model pembelajaran mesin yaitu Random Forest, Naive Bayes, Support Vector Machine (SVM), dan Extreme Gradient Boosting (XGBoost). Pendekatan ini digunakan untuk membandingkan performa setiap model dalam memprediksi apakah seseorang memiliki gangguan kesehatan mental berdasarkan dataset yang terdiri dari 50.000 entri dan 17 atribut. Dataset ini mencakup informasi demografis, kebiasaan harian, dan faktor gaya hidup yang berkaitan erat dengan kesehatan mental. Dataset diperoleh dari <a href='https://zenodo.org/records/14838680'>
 
 ## Business Understanding
 
 ### Problem Statements
-Berdasarkan latar belakang tersebut, maka rincian permasalahan yang dapat dibahas pada proyek ini yakni:
-1. Berapa banyak waktu belajar mingguan (*Study Time Weekly*) yang optimal untuk meningkatkan GPA siswa?
-2. Apakah absensi siswa (*Absences*) berkorelasi negatif dengan GPA mereka?
-3. Apakah tutoring (bimbingan belajar) memengaruhi GPA siswa?
-4. Apakah terdapat perbedaan performa akademik antara siswa laki-laki dan perempuan (*Gender*) dalam hal GPA?
-5. Bagaimana partisipasi siswa dalam kegiatan ekstrakurikuler (*Extracurricular, Sports, Music, Volunteering*) memengaruhi GPA mereka?
-6. Apakah dukungan orang tua (*Parental Support*) berhubungan langsung dengan GPA siswa?
-7. Faktor mana yang paling berpengaruh terhadap prediksi GPA siswa ketika mempertimbangkan semua atribut (*Age, Gender, Parental Education, Study Time Weekly, Absences, Tutoring, Parental Support, Extracurricular, Sports, Music, Volunteering*)
-8. Apa model terbaik yang dapat digunakan untuk memprediksi kinerja siswa?
+
+Berdasarkan latar belakang tersebut, berikut adalah pertanyaan-pertanyaan yang dijadikan fokus dalam proyek ini:
+
+1. **Apakah usia dan jenis kelamin** (`Age`, `Gender`) **berpengaruh terhadap kemungkinan seseorang mengalami gangguan kesehatan mental (`Mental_Health_Disorder`)?**
+2. **Apakah tingkat stres, jam tidur, dan jam kerja** (`Stress_Level`, `Sleep_Hours`, `Working_Hours`) **memiliki korelasi signifikan dengan kondisi kesehatan mental (`Mental_Health_Disorder`)?**
+3. **Seberapa besar pengaruh aktivitas fisik, kualitas diet, dan penggunaan media sosial** (`Physical_Activity`, `Quality_of_Diet`, `Social_Media_Use`) **terhadap kesehatan mental (`Mental_Health_Disorder`)?**
+4. **Apakah kebiasaan merokok dan konsumsi alkohol** (`Smoking`, `Alcohol_Consumption`) **memengaruhi kondisi kesehatan mental (`Mental_Health_Disorder`)?**
+5. **Apakah seseorang yang memiliki riwayat konsultasi dengan profesional kesehatan mental** (`Seeking_Professional_Help`) **lebih cenderung memiliki gangguan kesehatan mental (`Mental_Health_Disorder`)?**
+6. **Faktor mana yang paling berpengaruh dalam menentukan kondisi kesehatan mental (`Mental_Health_Disorder`) ketika mempertimbangkan semua atribut yang tersedia?**
+7. **Apa model machine learning terbaik yang mampu memprediksi kondisi kesehatan mental secara akurat berdasarkan fitur-fitur yang tersedia?**
+
 
 ### Goals
 Berdasarkan problem statements, berikut tujuan yang ingin dicapai pada proyek ini.
-1. Menampilkan durasi belajar yang lebih efektif.
-2. Mendeteksi pola absensi yang berdampak pada penurunan performa akademik.
-3. Menilai pengaruh bimbingan belajar untuk meningkatkan performa siswa.
-4. Mengidentifikasi apakah ada kesenjangan gender dalam pencapaian akademik.
-5. Menilai dampak kegiatan non-akademik terhadap kinerja akademik.
-6. Mengukur pentingnya keterlibatan orang tua dalam keberhasilan belajar siswa.
-7. Mengukur Faktor yang paling berpengaruh terhadap prediksi GPA Siswa
-8. Menemukan model terbaik berdasarkan akurasi tertinggi untuk memprediksi kinerja siswa.
-
+1. Menemukan pola-pola demografis dan gaya hidup yang berkorelasi dengan gangguan kesehatan mental.
+2. Mengidentifikasi faktor risiko utama yang mempengaruhi kesehatan mental seseorang.
+3. Menghasilkan model prediktif berbasis machine learning untuk mendeteksi kondisi kesehatan mental.
+4. Membandingkan performa beberapa algoritma machine learning untuk menentukan model terbaik berdasarkan metrik evaluasi.
+5. Memberikan wawasan data-driven yang dapat digunakan untuk mendukung kebijakan intervensi dini dalam bidang kesehatan mental.
+6. 
 ### Solution Statement
 1. Melakukan proses *Exploratory Data Analysis* (EDA) untuk menampilkan durasi belajar yang lebih efektif, mendeteksi pola absensi yang berdampak pada penurunan performa akademik, menilai efektivitas bimbingan belajar untuk meningkatkan performa siswa, mengidentifikasi apakah ada kesenjangan gender dalam pencapaian akademik, menilai dampak kegiatan non-akademik terhadap kinerja akademik, mengukur pentingnya keterlibatan orang tua dalam keberhasilan belajar siswa
 2. Menggunakan 4 model *machine learning* yaitu *Extreme Gradient Boosting* (XGBoost), *Support Vector Machine* (SVM), *Naive Bayes*, dan *Random Forest* untuk memprediksi kinerja siswa
