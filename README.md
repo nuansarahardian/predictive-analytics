@@ -347,3 +347,9 @@ Berdasarkan hasil yang diperoleh setelah melakukan proses EDA dan pengujiaan mod
 1. Abdul Rahman. "Klasifikasi Performa Akademik Siswa Menggunakan Metode Decision Tree dan Naive Bayes", Vol. 13 No.1 (2023) 22-31, ISSN 2503-3247. SINTA Peringkat 4, diakses pada 28 November 2024.
 2. Dicoding. Diakses pada 6 Juli 2024 dari https://www.dicoding.com/academies/319-machine-learning-terapan
 3. Arif Fahrudin1, Harco Leslie Hendric Spits Warnars. "Prediksi Performa Siswa Dengan Metode SAW", vol. 9, no. 1, 2020, P-ISSN 2089-1245, E-ISSN 2655-4925. KILAT, diakses pada 29 November 2024.
+![dos-b06f71539f3fe1ba6cd72f2403a77d1320240620141051](https://github.com/user-attachments/assets/70390d4c-e501-4a9b-8137-05d55cea8ea8)
+
+<img src="https://github.com/user-attachments/assets/70390d4c-e501-4a9b-8137-05d55cea8ea8" align="center"><br>
+
+
+
