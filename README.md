@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/d119cd4f-f729-4210-b49a-1f2701596147)# Laporan Proyek Machine Learning - Nuansa Syafrie Rahardian
+# Laporan Proyek Machine Learning - Nuansa Syafrie Rahardian
 
 ## Domain Proyek
 
@@ -6,7 +6,7 @@ Kesehatan mental merupakan aspek penting dalam kehidupan seseorang, yang memenga
 
 Dengan memanfaatkan data yang tersedia dari berbagai faktor seperti usia, jenis kelamin, jam tidur, tingkat stres, kualitas diet, hingga kebiasaan merokok dan konsumsi alkohol, machine learning dapat digunakan untuk membangun model prediktif yang mampu mengidentifikasi individu dengan risiko gangguan kesehatan mental. Model ini diharapkan dapat membantu organisasi, institusi kesehatan, dan pembuat kebijakan dalam mengambil langkah preventif serta memberikan intervensi yang tepat sasaran.
 
-Pada proyek ini, penulis menerapkan empat model pembelajaran mesin yaitu Random Forest, Naive Bayes, Support Vector Machine (SVM), dan Extreme Gradient Boosting (XGBoost). Pendekatan ini digunakan untuk membandingkan performa setiap model dalam memprediksi apakah seseorang memiliki gangguan kesehatan mental berdasarkan dataset yang terdiri dari 50.000 entri dan 17 atribut. Dataset ini mencakup informasi demografis, kebiasaan harian, dan faktor gaya hidup yang berkaitan erat dengan kesehatan mental. Dataset diperoleh dari <a href='https://zenodo.org/records/14838680'>
+Pada proyek ini, penulis menerapkan empat model pembelajaran mesin yaitu Random Forest, Naive Bayes, Support Vector Machine (SVM), dan Extreme Gradient Boosting (XGBoost). Pendekatan ini digunakan untuk membandingkan performa setiap model dalam memprediksi apakah seseorang memiliki gangguan kesehatan mental berdasarkan dataset yang terdiri dari 50.000 entri dan 17 atribut. Dataset ini mencakup informasi demografis, kebiasaan harian, dan faktor gaya hidup yang berkaitan erat dengan kesehatan mental. Dataset diperoleh dari https://zenodo.org/records/14838680
 
 ## Business Understanding
 
@@ -14,12 +14,12 @@ Pada proyek ini, penulis menerapkan empat model pembelajaran mesin yaitu Random 
 
 Berdasarkan latar belakang tersebut, berikut adalah pertanyaan-pertanyaan yang dijadikan fokus dalam proyek ini:
 
-1. **Apakah usia dan jenis kelamin** (`Age`, `Gender`) **berpengaruh terhadap kemungkinan seseorang mengalami gangguan kesehatan mental (`Mental_Health_Disorder`)?**
-2. **Apakah tingkat stres, jam tidur, dan jam kerja** (`Stress_Level`, `Sleep_Hours`, `Working_Hours`) **memiliki korelasi signifikan dengan kondisi kesehatan mental (`Mental_Health_Disorder`)?**
-3. **Seberapa besar pengaruh aktivitas fisik, kualitas diet, dan penggunaan media sosial** (`Physical_Activity`, `Quality_of_Diet`, `Social_Media_Use`) **terhadap kesehatan mental (`Mental_Health_Disorder`)?**
-4. **Apakah kebiasaan merokok dan konsumsi alkohol** (`Smoking`, `Alcohol_Consumption`) **memengaruhi kondisi kesehatan mental (`Mental_Health_Disorder`)?**
-5. **Apakah seseorang yang memiliki riwayat konsultasi dengan profesional kesehatan mental** (`Seeking_Professional_Help`) **lebih cenderung memiliki gangguan kesehatan mental (`Mental_Health_Disorder`)?**
-6. **Faktor mana yang paling berpengaruh dalam menentukan kondisi kesehatan mental (`Mental_Health_Disorder`) ketika mempertimbangkan semua atribut yang tersedia?**
+1. **Apakah usia dan jenis kelamin** (`Age`, `Gender`) **berpengaruh terhadap kemungkinan seseorang mengalami gangguan kesehatan mental (`Mental_Health_Condition`)?**
+2. **Apakah tingkat stres, jam tidur, dan jam kerja** (`Stress_Level`, `Sleep_Hours`, `Working_Hours`) **memiliki korelasi signifikan dengan kondisi kesehatan mental (`Mental_Health_Condition`)?**
+3. **Seberapa besar pengaruh aktivitas fisik, kualitas diet, dan penggunaan media sosial** (`Physical_Activity`, `Quality_of_Diet`, `Social_Media_Use`) **terhadap kesehatan mental (`Mental_Health_Condition`)?**
+4. **Apakah kebiasaan merokok dan konsumsi alkohol** (`Smoking`, `Alcohol_Consumption`) **memengaruhi kondisi kesehatan mental (`Mental_Health_Condition`)?**
+5. **Apakah seseorang yang memiliki riwayat konsultasi dengan profesional kesehatan mental** (`Seeking_Professional_Help`) **lebih cenderung memiliki gangguan kesehatan mental (`Mental_Health_Condition`)?**
+6. **Faktor mana yang paling berpengaruh dalam menentukan kondisi kesehatan mental (`Mental_Health_Condition`) ketika mempertimbangkan semua atribut yang tersedia?**
 7. **Apa model machine learning terbaik yang mampu memprediksi kondisi kesehatan mental secara akurat berdasarkan fitur-fitur yang tersedia?**
 
 
@@ -30,106 +30,166 @@ Berdasarkan problem statements, berikut tujuan yang ingin dicapai pada proyek in
 3. Menghasilkan model prediktif berbasis machine learning untuk mendeteksi kondisi kesehatan mental.
 4. Membandingkan performa beberapa algoritma machine learning untuk menentukan model terbaik berdasarkan metrik evaluasi.
 5. Memberikan wawasan data-driven yang dapat digunakan untuk mendukung kebijakan intervensi dini dalam bidang kesehatan mental.
-6. 
+
+   
 ### Solution Statement
-1. Melakukan proses *Exploratory Data Analysis* (EDA) untuk menampilkan durasi belajar yang lebih efektif, mendeteksi pola absensi yang berdampak pada penurunan performa akademik, menilai efektivitas bimbingan belajar untuk meningkatkan performa siswa, mengidentifikasi apakah ada kesenjangan gender dalam pencapaian akademik, menilai dampak kegiatan non-akademik terhadap kinerja akademik, mengukur pentingnya keterlibatan orang tua dalam keberhasilan belajar siswa
-2. Menggunakan 4 model *machine learning* yaitu *Extreme Gradient Boosting* (XGBoost), *Support Vector Machine* (SVM), *Naive Bayes*, dan *Random Forest* untuk memprediksi kinerja siswa
-3. Menggunakan confusion matrix dan f1 score pada masing-masing model *machine learning* untuk menemukan model terbaik berdasarkan akurasi tertinggi.
+
+1. Melakukan _Exploratory Data Analysis (EDA)_ untuk menggali wawasan dari data, termasuk pengaruh **usia** (`Age`), **gender** (`Gender`), **tingkat stres** (`Stress_Level`), **jam tidur** (`Sleep_Hours`), **jam kerja** (`Working_Hours`), **kebiasaan merokok** (`Smoking`), **konsumsi alkohol** (`Alcohol_Consumption`), dan faktor gaya hidup lainnya terhadap **kesehatan mental** (`Mental_Health_Condition`).
+
+2. Menerapkan empat algoritma machine learning yaitu:
+   - **Random Forest**
+   - **Naive Bayes**
+   - **Support Vector Machine (SVM)**
+   - **Extreme Gradient Boosting (XGBoost)**
+
+   untuk melakukan klasifikasi kondisi kesehatan mental seseorang berdasarkan data yang tersedia.
+
+3. Menggunakan metrik evaluasi sebagai berikut untuk menilai performa model:
+   - **Confusion Matrix**
+   - **Accuracy**
+   - **Precision**
+   - **Recall**
+   - **F1-Score**
+
+4. Menyusun interpretasi dan insight dari model terbaik yang dihasilkan, serta memberikan rekomendasi intervensi berbasis data berdasarkan faktor-faktor yang paling berpengaruh terhadap kondisi kesehatan mental.
+
 
 ## Data Understanding
-Dataset yang digunakan untuk mempredisksi kinerja siswa diambil dari platform kaggle yang dapat diakses pada tautan berikut (https://www.kaggle.com/datasets/rabieelkharoua/students-performance-dataset) yang dipublikasikan oleh Rabie El Kharoua pada tanggal 13 Juni 2024. Kumpulan data ini berisi informasi lengkap tentang 2.392 siswa sekolah menengah, yang merinci demografi, kebiasaan belajar, keterlibatan orang tua, kegiatan ekstrakurikuler, dan prestasi akademik mereka. Variabel target, GradeClass, mengklasifikasikan nilai siswa ke dalam kategori yang berbeda, sehingga menyediakan kumpulan data yang kuat untuk penelitian pendidikan, pemodelan prediktif, dan analisis statistik. Dataset ini terdiri dari 1 file csv.<br>
+
+Dataset yang digunakan dalam penelitian ini berjudul "Mental Health and Lifestyle Dataset for Sentiment Analysis" dan diperoleh dari platform Zenodo. Dataset ini dipublikasikan oleh Bhagwati Pandey pada tanggal 13 Juni 2024, dan dapat diakses melalui tautan berikut: https://zenodo.org/records/14838680. Dataset ini berisi 50.000 data individu dari berbagai negara, mencakup faktor-faktor demografis, kebiasaan gaya hidup, serta kondisi kesehatan mental.
+Dataset ini sangat relevan untuk analisis kesehatan mental karena mengandung berbagai atribut penting seperti status kondisi kesehatan mental (Mental_Health_Condition), tingkat keparahan (Severity), riwayat konsultasi (Consultation_History), tingkat stres (Stress_Level), serta gaya hidup seperti kebiasaan tidur, olahraga, dan penggunaan media sosial. Dataset ini dirancang untuk digunakan dalam riset prediktif, analisis korelasi, dan studi perilaku.
+
+Sample data yang terdapat pada dataset adalah sebagai berikut:
+
+![image](https://github.com/user-attachments/assets/e0b085f0-de49-43c2-a06b-a0e67b7066a1)
+
 Infromasi dataset tersebut dapat dilihat pada gambar dibawah ini:
 
-<img src="https://github.com/user-attachments/assets/32e0f6ad-799b-4949-92fe-09eb4238385d" align="center"><br>
-Dari gambar yang ditampilkan, terdapat 12 variabel bertipe int64 dan 3 variabel bertipe fload64
+![image](https://github.com/user-attachments/assets/661082ca-e92c-4a18-8b9a-959654dae01b)
 
+
+Dari gambar yang ditampilkan, terdapat 3 variabel bertipe float64, 4 variabel bertipe int64, dan 11 variabel bertipe object (kategorikal)
 ### Deskripsi Variabel
-Dataset ini memiliki 15 variabel dengan keterangan sebagai berikut.
-Variabel | Keterangan
-----------|----------
-StudentID | Pengidentifikasi unik yang diberikan kepada setiap siswa (1001 hingga 3392)
-Age | Usia siswa berkisar antara 15 hingga 18 tahun
-Gender | Jenis kelamin siswa, di mana 0 mewakili Laki-laki dan 1 mewakili Perempuan
-Ethnicity | Etnis siswa, dikodekan sebagai berikut: 0(Kaukasia), 1(Afrika Amerika), 2(Asia), 3(Lainnya)
-ParentalEducation | Tingkat pendidikan orang tua, dikodekan sebagai berikut: 0(Tidak Ada), 1(Sekolah Menengah Atas), 2(Beberapa Perguruan Tinggi), 3(Sarjana), 4(Lebih Tinggi)
-StudyTimeWeekly | Waktu belajar mingguan dalam jam, berkisar antara 0 hingga 20
-Absences | Jumlah ketidakhadiran selama tahun ajaran, berkisar antara 0 hingga 30
-Tutoring | Status bimbingan belajar, di mana 0 menunjukkan Tidak dan 1 menunjukkan Ya
-ParentalSupport | Tingkat dukungan orang tua, dikodekan sebagai berikut: 0(Tidak Ada), 1(Rendah), 2(Sedang), 3(Tinggi), 4(Sangat Tinggi)
-Extracurricular | Partisipasi dalam kegiatan ekstrakurikuler, di mana 0 menunjukkan Tidak dan 1 menunjukkan Ya
-Sports | Partisipasi dalam olahraga, di mana 0 menunjukkan Tidak dan 1 menunjukkan Ya
-Music	| Partisipasi dalam kegiatan musik, di mana 0 menunjukkan Tidak dan 1 menunjukkan Ya
-Volunteering	| Partisipasi dalam kesukarelaan, di mana 0 menunjukkan Tidak dan 1 menunjukkan Ya
-GPA	| Nilai Rata-rata Poin pada skala 2,0 hingga 4,0
-GradeClass | Klasifikasi nilai siswa berdasarkan IPK (0: 'A' (IPK >= 3,5)), (1: 'B' (3,0 <= IPK < 3,5)), (2: 'C' (2,5 <= IPK < 3,0)), (3: 'D' (2,0 <= IPK < 2,5)), (4: 'F' (IPK < 2,0))
+Dataset ini memiliki 17 variabel dengan keterangan sebagai berikut.
+| No | Nama Atribut              | Tipe Data | Deskripsi                                                                 |
+|----|---------------------------|-----------|--------------------------------------------------------------------------|
+| 1  | User_ID                   | Integer   | ID unik untuk setiap individu dalam dataset. Tidak digunakan dalam analisis. |
+| 2  | Age                       | Integer   | Usia individu dalam tahun.                                               |
+| 3  | Gender                    | Object    | Identitas gender individu.                                               |
+| 4  | Occupation                | Object    | Sektor pekerjaan dari individu.                                          |
+| 5  | Country                   | Object    | Negara tempat tinggal individu.                                          |
+| 6  | Mental_Health_Condition   | Object    | Menunjukkan apakah individu memiliki gangguan kesehatan mental.          |
+| 7  | Severity                  | Object    | Tingkat keparahan dari gangguan kesehatan mental yang dialami.           |
+| 8  | Consultation_History      | Object    | Menunjukkan apakah individu pernah berkonsultasi dengan profesional kesehatan mental. |
+| 9  | Stress_Level              | Object    | Tingkat stres individu.                                                  |
+| 10 | Sleep_Hours               | Float     | Rata-rata jumlah jam tidur individu per hari.                            |
+| 11 | Work_Hours                | Integer   | Jumlah jam kerja individu per minggu.                                    |
+| 12 | Physical_Activity_Hours   | Integer   | Jumlah jam aktivitas fisik individu per minggu.                          |
+| 13 | Social_Media_Usage        | Float     | Jumlah jam penggunaan media sosial per hari oleh individu.               |
+| 14 | Diet_Quality              | Object    | Kualitas pola makan individu.                                            |
+| 15 | Smoking_Habit             | Object    | Kebiasaan merokok individu.                                              |
+| 16 | Alcohol_Consumption       | Object    | Kebiasaan konsumsi alkohol individu.                                     |
+| 17 | Medication_Usage          | Object    | Menunjukkan apakah individu menggunakan obat-obatan untuk kesehatan mental. |
+
 
 ### Menangani Missing Value dan Duplicate Data (Duplikasi Data)
 Pada tahap ini kita akan mengecek data yang tidak valid pada dataset. Setelah diperiksa apakah terdapat kolom yang bernilai null, hasilnya adalah tidak ada. Sedangkan data duplikat atau data ganda juga tidak ada. Maka dengan demikian data siapa untuk dianalisis pada tahap selanjutnya.
 
-### Konversi nilai numerik kategorikal ke objek(string)
-Pada tahap ini, karena dataset kita tipe kategorikal sudah dalam bentuk nilai numerik, maka kita perlu membuat fungsi konversi nilai number kategorikal ke objek (string). Tujuan dari langkah ini yaitu untuk menampilkan label fitur visualisasi dalam proses analisis data dengan teknik Univariate EDA dan Multivariate EDA.
+### Pengecekan Outlier pada Kolom Numerik
+Pengecekan outlier dilakukan pada kolom numerik untuk mengidentifikasi nilai-nilai ekstrem yang berpotensi memengaruhi hasil analisis dan model prediktif. Metode yang digunakan dalam pengecekan outlier adalah **Interquartile Range (IQR)**, di mana perhitungan IQR dilakukan dengan rumus sebagai berikut:
+
+\[
+IQR = Q3 - Q1
+\]
+
+dengan:
+- **Q1 (Quartile 1)**: Nilai tengah dari data di bawah median (25% data).
+- **Q3 (Quartile 3)**: Nilai tengah dari data di atas median (75% data).
+
+Batas untuk mendeteksi outlier ditentukan oleh:
+- **Batas Bawah** = Q1 - 1.5 × IQR
+- **Batas Atas** = Q3 + 1.5 × IQR
+
+Data yang berada di bawah atau di atas batas tersebut dianggap sebagai *outlier*. Dari hasil pengecekan, dapat disimpulkan bahwa tidak ditemukan outlier pada semua kolom numerik di dataset, dengan hasil sebagai beriut:
+![Screenshot 2025-05-17 164354](https://github.com/user-attachments/assets/d3204598-6682-4de5-83f9-91dd64ef0589)
+
+
+
+## Exploratory Data Analysis (EDA)
 
 ### Univariate Analysis EDA
+
 Ada beberapa tahap yang akan kita lakukan, yakni:
 Tahap pertama, membagi variabel-variabel menjadi 2 jenis, yaitu variabel numerikal dan variabel kategorikal. Berikut merupakan kolom-kolom yang termasuk dalam variabel numerikal maupun kategorikal. <br>
-Semua numerikal: ["Age", "StudyTimeWeekly", "Absences", "GPA"] <br>
-Semua kategorikal: ["Gender", "Ethnicity", "ParentalEducation", "Tutoring", "ParentalSupport", "Extracurricular", "Sports", "Music", "Volunteering", "GradeClass"]
 
-Tahap kedua, kita akan melihat nilai berbeda pada kolom kategorikal pada gambar tabel dibawah ini:
+![image](https://github.com/user-attachments/assets/ea547cc3-6f73-49f0-94df-4d8a4bbc624c)
+![image](https://github.com/user-attachments/assets/2b4fa296-e713-4798-ac02-a4b9c1b67b26)
 
-<img src="https://github.com/user-attachments/assets/b58d3ef7-e896-470c-83b7-f32bc0352770" align="center"><br>
-Dapat dilihat pada tabel nilai berbeda pada:
-1. Kolom gender = 2;
-2. Kolom Etnicity = 4;
-3. Kolom ParentalEducation = 5;
-4. Kolom Tutoring = 2;
-5. Kolom ParentalSupport = 5;
-6. Kolom Extracurricular = 2;
-7. Kolom Sports = 2;
-8. Kolom Music = 2;
-9. Kolom Volunteering = 2;
-10. Kolom GradeClass(Variabel Target) = 5;
-    
-Tahap ketiga, Pada tahap ini, kita akan membuat visualisasi data kategorikal dalam bentuk grafik dengan menggunakan library python matplotlib. Hasilnya seperti gambar dibawah ini:
+Keterangan detail terkait kolom _object_ kategorikal dan _value_ nya dapat dilihat pada tabel berikut:
+| **No** | **Kolom Kategorikal**     | **Jumlah Kategori Unik** | **Daftar Kategori**                                           |
+| ------ | ------------------------- | ------------------------ | ------------------------------------------------------------- |
+| 1      | Gender                    | 4                        | Male, Prefer not to say, Non-binary, Female                   |
+| 2      | Occupation                | 7                        | Education, Engineering, Sales, IT, Healthcare, Finance, Other |
+| 3      | Country                   | 7                        | Australia, Other, India, USA, Germany, Canada, UK             |
+| 4      | Mental\_Health\_Condition | 2                        | Yes, No                                                       |
+| 5      | Severity                  | 4                        | None, Low, Medium, High                                       |
+| 6      | Consultation\_History     | 2                        | Yes, No                                                       |
+| 7      | Stress\_Level             | 3                        | Low, Medium, High                                             |
+| 8      | Diet\_Quality             | 3                        | Healthy, Unhealthy, Average                                   |
+| 9      | Smoking\_Habit            | 4                        | Regular Smoker, Heavy Smoker, Non-Smoker, Occasional Smoker   |
+| 10     | Alcohol\_Consumption      | 4                        | Regular Drinker, Social Drinker, Non-Drinker, Heavy Drinker   |
+| 11     | Medication\_Usage         | 2                        | Yes, No                                                       |
 
-<img src="https://github.com/user-attachments/assets/9f4504fb-45a8-4ce0-a932-37284fee5c81" align="center"><br>
-<img src="https://github.com/user-attachments/assets/da102c2b-ebde-4651-9e19-390056a4e2ea" align="center"><br>
+Tahap kedua adalah menampilkan statistik ringkasan dataset, dengan hasil sebagai berikut dan insight yang diperoleh.
+![image](https://github.com/user-attachments/assets/bf127a05-601f-4dfe-8dec-501341c4df72)
+
+Penjelasan:
+- Seluruh fitur memiliki jumlah observasi yang lengkap (tidak ada nilai yang hilang).
+- Rata-rata jam kerja (55 jam/minggu) relatif tinggi, mengindikasikan beban kerja yang signifikan.
+- Aktivitas fisik rata-rata (4.98 jam/minggu) mendekati rekomendasi WHO (≥150 menit).
+- Penggunaan media sosial cukup tinggi (rata-rata 3.24 jam/hari), dapat menjadi indikator potensi pengaruh terhadap kondisi mental.
+
+Insight Awal:
+- Populasi berada dalam rentang usia produktif (18–65 tahun) dengan variasi yang lebar.
+- Variasi yang besar pada jam kerja dan usia menunjukkan potensi perbedaan gaya hidup yang signifikan di antara responden.
+- Beberapa individu tidak memiliki aktivitas fisik sama sekali (nilai minimum = 0).
+- Korelasi antara fitur-fitur seperti jam kerja, aktivitas fisik, dan penggunaan media sosial dapat dianalisis lebih lanjut terhadap variabel stres atau kesehatan mental.
+
+Tahap ketiga, Pada tahap ini, kita akan membuat visualisasi data kategorikal dalam bentuk grafik dengan menggunakan library python matplotlib dan seaborn. Hasilnya seperti gambar dibawah ini:
+
+
+![download (20)](https://github.com/user-attachments/assets/f9b96af7-cfde-49fb-b1c3-df0ce85dec0a)
 Interpretasi:
-1. Grafik jenis kelamin, menunjukan jumlah merata antara laki-laki dan perempuan.
-2. Grafik Etnis, menunjukan mayoritas siswa berasal dari etnis kaukasia.
-3. Grafisk pendidikan orangtua, menunjukan mayoritas pendidikan orang tua yakni pensisikan tinggi dan sarjana
-4. Grafik bimbingan belajar, menunjukan mayoritas siswa tidak mengikuti bimbingan belajar.
-5. Grafik dukungan orang tua, menunjukan mayoritas dukungan orang tua berada di level sdang dan tinggi.
-6. Grafik Ekstrakulikuler(EKtrakulikuler, Olahraga, Musik dan Sukrelawan), menujukan rendahnya minat siswa pada kegiatan diluar sekolah.
+| Fitur                         | Analisis                                                                                                                     |
+| ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| **Gender**                    | Mayoritas responden adalah *Female* dan *Male*, sementara kategori *Non-binary* dan *Prefer not to say* relatif sedikit.     |
+| **Occupation**                | Terdistribusi merata pada beberapa sektor, dengan "IT," "Healthcare," dan "Education" menjadi sektor dominan.                |
+| **Country**                   | Distribusi negara relatif seimbang, dengan "India," "USA," dan "Germany" mendominasi.                                        |
+| **Mental\_Health\_Condition** | Mayoritas tidak memiliki gangguan kesehatan mental (*No*), namun masih terdapat jumlah signifikan yang mengalaminya (*Yes*). |
+| **Severity**                  | Kategori "None" sangat dominan dibandingkan kategori lainnya. Sementara "Low," "Medium," dan "High" relatif kecil.           |
+| **Consultation\_History**     | Mayoritas belum pernah melakukan konsultasi profesional (*No*).                                                              |
+| **Stress\_Level**             | Kebanyakan individu memiliki tingkat stres "Medium," diikuti oleh "Low" dan "High."                                          |
+| **Diet\_Quality**             | Mayoritas memiliki diet yang "Average," diikuti oleh "Healthy" dan "Unhealthy."                                              |
+| **Smoking\_Habit**            | Distribusi merata, namun "Non-Smoker" mendominasi.                                                                           |
+| **Alcohol\_Consumption**      | "Non-Drinker" mendominasi, namun "Social Drinker" juga cukup tinggi.                                                         |
+| **Medication\_Usage**         | Mayoritas tidak mengonsumsi obat-obatan kesehatan mental (*No*).                                                             |
+
 
 Tahap keempat, kita akan membuat visualisasi data numerikal dalam bentuk grafik dengan menggunakan library python `matplotlib`. Hasilnya seperti gambar dibawah ini:
 
-<img src="https://github.com/user-attachments/assets/1815862b-2aa3-47c9-8213-0922092d39ae" align="center"><br>
+![download (19)](https://github.com/user-attachments/assets/8736df01-4c96-4f3e-84e0-a5c08cd3fd39)
+
 Interprestasi:
-1. Pada kolom Age, dapat dilihat rata-rata siswa berumur 15-17 tahun. Dapat disimpulkan tidak ada Outlier yang tersebar.
-2. Pada kolom StudyTimeWeekly, dapat dilihat bahwa rata-rata siswa memiliki waktu belajar 5-14 jam per minggu.
-3. Pada kolom absences, dapat dilihat bahwa rata-rata siswa memiliki jumlah ketidakhadiran 6 - 23 hari. Dapat disimpulkan 1. Pada kolom
-4. Pada kolom GPA, dapat dilihat bahwa rata-rata prestasi siswa diantara 1,2 - 2,7 dan tidak memiliki outlier.
+| Fitur                         | Analisis                                                                                                       |
+| ----------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| **User\_ID**                  | Hanya merupakan identitas unik, tidak relevan untuk analisis.                                                  |
+| **Age**                       | Distribusi usia cenderung merata dari usia 20 hingga 60 tahun.                                                 |
+| **Sleep\_Hours**              | Kebanyakan individu tidur antara 5 hingga 8 jam per hari, yang merupakan durasi ideal. Pola yang cukup normal. |
+| **Work\_Hours**               | Mayoritas bekerja antara 40 hingga 60 jam per minggu, mendekati standar kerja umum.                            |
+| **Physical\_Activity\_Hours** | Mayoritas melakukan aktivitas fisik sekitar 2 hingga 6 jam per minggu.                                         |
+| **Social\_Media\_Usage**      | Penggunaan media sosial rata-rata antara 1 hingga 4 jam per hari.                                              |
 
-Tahap yang kelima, kita akan melihat lebih detail mengenai jumlah dari masing-masing tingkat kelas terbaik yang menjadi target kita untuk mengetahui jumlah secara umum.
 
-<img src="https://github.com/user-attachments/assets/4c2f99ff-606c-4b5a-bbf1-17d34ed575dd" align="center"><br>
-Interpretasi: 
-Kelas terbaik (GradeClass) yang ditampilkan menununjukan mayoritas prestasi siswa berada di kategori Grade F(Prestasi terendah) yakni 1211 siswa sedangkan minioritas siswa berada pada kategori Grade A (Kelas tertinggi) yakni 107
-
-Tahap keenam, kita akan melihat persebaran data dari masing-masing kategori kelas pada kolom GradeClass:
-
-<img src="https://github.com/user-attachments/assets/e66a9c49-e205-4c02-8f44-896b102faf37" align="center"><br>
-Interpretasi:
-1. Siswa berada pada Grade F (kelas terendah) memiliki presentasi terbayak yakni 50.6%.
-2. Siswa berada pada Grade A (kelas tertinggi) memiliki presentasi sedikit yakni 4.5%.
-3. Siswa yang lainnya berada pada Grade B (11.2%), Grade C(16.3%) dan Grade D (17.3%)
-
-Langkah terakhir, kita akan membentuk histogram dari variabel-variabel numerikal untuk melihat persebaran data:
-
-<img src="https://github.com/user-attachments/assets/82bb4fd9-534d-4fe7-a351-7a8635583181" align="center"><br>
-Interpretasi: 
-Usia, waktu belajar setiap minggu, absen dan nilai siswa cukup berdistribusi normal.
 
 ### Multivariate Analysis EDA
 
