@@ -2,24 +2,29 @@
 
 ## 1. Domain Proyek
 
-Penyakit kardiovaskular masih menjadi penyebab utama kematian di seluruh dunia, dengan gagal jantung sebagai salah satu bentuk komplikasi yang paling serius. Gagal jantung terjadi ketika jantung tidak mampu memompa darah secara efisien untuk memenuhi kebutuhan tubuh. Kondisi ini dapat disebabkan oleh berbagai faktor, seperti tekanan darah tinggi, penyakit arteri koroner, dan gaya hidup yang tidak sehat. Menurut data dari World Health Organization (WHO), sekitar 17,9 juta orang meninggal setiap tahunnya akibat penyakit kardiovaskular, dan angka ini terus meningkat seiring dengan perubahan pola hidup dan bertambahnya usia populasi global.
+Penyakit kardiovaskular merupakan penyebab utama kematian di seluruh dunia, dengan gagal jantung sebagai salah satu komplikasi paling serius. Gagal jantung terjadi ketika jantung tidak dapat memompa darah secara efektif untuk memenuhi kebutuhan tubuh. Menurut World Health Organization (WHO), sekitar 17,9 juta orang meninggal setiap tahunnya akibat penyakit kardiovaskular, dan jumlah ini terus meningkat seiring bertambahnya usia populasi dan perubahan gaya hidup.
 
-Di tengah urgensi penanganan penyakit ini, peran teknologi, khususnya kecerdasan buatan (Artificial Intelligence), semakin menonjol dalam dunia medis. Salah satu penerapannya adalah penggunaan algoritma *machine learning* untuk memprediksi kemungkinan gagal jantung pada pasien berdasarkan parameter medis tertentu. Dengan memanfaatkan data historis pasien, model prediktif ini dapat membantu tenaga medis mengambil keputusan lebih cepat dan akurat, terutama dalam proses skrining awal atau saat menangani pasien dalam kondisi gawat darurat.
+Diagnosis dini sangat penting untuk mencegah progresivitas gagal jantung. Namun, tantangan utama adalah keterbatasan sumber daya medis, terutama di daerah terpencil. Tidak semua fasilitas kesehatan memiliki alat diagnostik yang canggih atau tenaga ahli yang memadai. Akibatnya, banyak pasien baru diketahui mengalami gagal jantung saat kondisinya sudah parah.
 
-Dalam proyek ini, saya akan mengembangkan sistem prediksi berbasis machine learning yang mampu mengidentifikasi pasien dengan risiko tinggi mengalami gagal jantung. Proyek ini akan menyentuh berbagai aspek penting dalam pembuatan model prediktif, mulai dari pemahaman domain medis, perumusan masalah bisnis, hingga pengembangan solusi teknis dan evaluasi kinerja model. Dengan pendekatan yang sistematis dan berbasis data, diharapkan proyek ini mampu memberikan gambaran nyata tentang bagaimana teknologi dapat digunakan untuk mendukung sektor kesehatan secara langsung.
+Untuk mengatasi hal tersebut, teknologi kecerdasan buatan, khususnya machine learning, menjadi solusi potensial. Dengan menganalisis data klinis sederhana seperti tekanan darah, denyut jantung, kadar kolesterol, dan riwayat penyakit, algoritma machine learning dapat digunakan untuk memprediksi risiko gagal jantung sejak dini. Sistem prediktif ini tidak menggantikan dokter, melainkan menjadi alat bantu pengambilan keputusan dalam proses skrining awal.
 
+Proyek ini bertujuan membangun model machine learning untuk memprediksi gagal jantung berdasarkan data historis pasien. Dengan pendekatan berbasis data, diharapkan dapat mendukung tenaga medis dalam meningkatkan kecepatan dan akurasi diagnosis, serta efisiensi pelayanan kesehatan.
 
 ## 2. Business Understanding
 
-### Latar Belakang Permasalahan
+Tantangan utama dalam penanganan gagal jantung adalah keterlambatan diagnosis akibat keterbatasan alat dan tenaga medis. Kebutuhan akan sistem prediktif yang cepat, akurat, dan mudah diimplementasikan menjadi sangat penting, terutama untuk fasilitas kesehatan dengan sumber daya terbatas.
 
-Di dunia medis, diagnosis terhadap penyakit serius seperti gagal jantung tidak hanya membutuhkan waktu, tetapi juga keahlian serta akses terhadap alat medis yang canggih. Dalam praktiknya, tidak semua fasilitas kesehatan, terutama di daerah terpencil, memiliki sumber daya tersebut. Akibatnya, banyak kasus gagal jantung yang tidak terdeteksi sejak dini dan baru diketahui ketika sudah berada pada tahap lanjut yang sulit ditangani. Hal ini memperbesar risiko komplikasi dan bahkan kematian.
+Proyek ini bertujuan untuk:
 
-Dengan melihat tantangan tersebut, muncul kebutuhan untuk menghadirkan sistem pendukung keputusan medis berbasis data. Sistem ini diharapkan mampu memberikan peringatan dini kepada dokter maupun tenaga kesehatan lain, bahwa seorang pasien mungkin memiliki risiko gagal jantung berdasarkan indikator klinis yang umum dan mudah didapatkan, seperti tekanan darah, denyut jantung, kadar kolesterol, dan hasil rekam jantung. Prediksi semacam ini tidak dimaksudkan untuk menggantikan keputusan medis, tetapi sebagai alat bantu yang dapat mempercepat proses diagnosis awal.
+- Mengembangkan model machine learning yang dapat memprediksi risiko gagal jantung berdasarkan data klinis pasien.
 
-Di sisi lain, rumah sakit dan klinik juga menghadapi tekanan untuk meningkatkan efisiensi operasional dan kualitas pelayanan. Sistem berbasis machine learning dapat berfungsi sebagai lapisan tambahan dalam proses penyaringan pasien, sehingga sumber daya medis dapat difokuskan pada kasus-kasus yang membutuhkan perhatian lebih besar.
+- Memberikan sistem pendukung keputusan medis untuk meningkatkan deteksi dini.
 
----
+- Membantu rumah sakit dalam memprioritaskan penanganan pasien berisiko tinggi.
+
+Dengan model prediktif ini, diharapkan dapat meningkatkan efisiensi operasional dan menurunkan angka kematian akibat gagal jantung melalui intervensi dini.
+
+
 
 
 ### Problem Statements
@@ -454,6 +459,11 @@ Model machine learning hanya dapat memproses nilai numerik, sehingga variabel ka
 
 ---
 
+### Split Data
+
+- Data dibagi menjadi **training set (80%)** dan **testing set (20%)** menggunakan `train_test_split`.
+- Parameter `random_state=42` digunakan agar hasil dapat direproduksi.
+
 ### Normalisasi Fitur (Khusus Model SVM)
 
 Beberapa algoritma seperti **Support Vector Machine (SVM)** sensitif terhadap skala fitur.
@@ -462,11 +472,6 @@ Beberapa algoritma seperti **Support Vector Machine (SVM)** sensitif terhadap sk
 - Normalisasi hanya dilakukan pada fitur numerik, dan hanya digunakan pada model SVM.
 
 ---
-
-### Split Data
-
-- Data dibagi menjadi **training set (80%)** dan **testing set (20%)** menggunakan `train_test_split`.
-- Parameter `random_state=42` digunakan agar hasil dapat direproduksi.
 
 ## 5. Modeling
 
@@ -504,7 +509,19 @@ Sebelum model dilatih, dilakukan **standarisasi** fitur menggunakan `StandardSca
 Model kemudian dilatih pada data yang telah dinormalisasi, dan evaluasi dilakukan menggunakan data testing yang juga sudah dinormalisasi.
 
 ---
+### 3. XGBoost (Extreme Gradient Boosting)
 
+XGBoost adalah algoritma boosting yang kuat dan efisien, yang melatih pohon keputusan secara berurutan untuk memperbaiki kesalahan dari model sebelumnya. Sangat populer di kompetisi data science karena performanya yang tinggi.
+
+- Library: xgboost.XGBClassifier
+- Parameter:
+  - use_label_encoder=False (nonaktifkan encoder lama)
+  - eval_metric='logloss' (metrik evaluasi saat training)
+  - random_state=42 untuk replikasi
+
+Model dilatih pada data training dan diuji pada data testing. Evaluasi dilakukan dengan classification_report.
+
+---
 ## Evaluation
 
 Pada proyek ini, penilaian model menggunakan confusion matrix, akurasi, dan f1 score sebagai metrik evaluasi untuk masing-masing model. Akan dijelaskan terlebih dahulu bagaimana cara mendapatkan akurasi dan f1 score serta bagaimana cara menggunakan confusion matrix.
